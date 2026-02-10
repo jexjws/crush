@@ -461,6 +461,26 @@ it creates. You can customize this behavior with the `attribution` option:
 - `generated_with`: When true (default), adds `💘 Generated with Crush` line to
   commit messages and PR descriptions
 
+### Security & Restrictions
+
+By default, Crush blocks the execution of potentially dangerous commands (like
+known hazardous system commands or package installations). If you operate in a
+safe environment or need to run these commands, you can disable this
+protection:
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "disable_command_blocking": true
+  }
+}
+```
+
+> [!WARNING]
+> Disabling command blocking allows the AI to execute ANY command on your
+> system. Only use this if you trust the environment and the model.
+
 ### Custom Providers
 
 Crush supports custom provider configurations for both OpenAI-compatible and
